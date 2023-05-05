@@ -5,7 +5,7 @@ export default function ProductCategories() {
   const { productCategories, handleFilterByCat } = useContext(shopContext);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col items-start gap-3">
       <div>
         <p className="text-gray-600 font-medium text-lg">Կատեգորիաներ</p>
       </div>

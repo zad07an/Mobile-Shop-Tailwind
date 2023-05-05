@@ -74,8 +74,16 @@ export default function ShopContext({ children }) {
     setProductSort({ ...productSort, modal: !productSort.modal });
   };
 
-  const handleFilterByStorage = (newStorage) => {
-    setStorage(newStorage);
+  const handleFilterByStorage = (e) => {
+    const { value, checked } = e.target;
+    checked
+      ? setStorage((prev) => [...prev, value])
+      : setStorage(storage.filter((item) => item !== value));
+    if (checked) {
+      setProductParams("storage=" + value);
+    } else {
+      setProductParams("");
+    }
   };
 
   return (

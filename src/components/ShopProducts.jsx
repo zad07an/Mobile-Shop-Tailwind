@@ -30,8 +30,8 @@ export default function ShopProducts() {
             ? productPrice.max >= item.price && productPrice.min <= item.price
             : cat
             ? item?.category === cat
-            : storage
-            ? item?.storage === storage
+            : storage.length > 0
+            ? item?.storage === storage.find(newStorage => newStorage === item?.storage)
             : item
         )
         ?.map((product) => {

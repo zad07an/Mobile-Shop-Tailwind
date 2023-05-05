@@ -5,7 +5,7 @@ import ShopProductsSort from "../components/ShopProductsSort";
 import FilterByPrice from "../components/shop-assortment/FilterByPrice";
 import FilterByStatus from "../components/shop-assortment/FilterByStatus";
 import ProductCategories from "../components/shop-assortment/ProductCategories";
-import FilterByStorage from "../components/shop-assortment/FIlterByStorage";
+import FilterByStorage from "../components/shop-assortment/FilterByStorage";
 
 export default function Shop() {
   const {
@@ -18,6 +18,7 @@ export default function Shop() {
     productPrice,
     priceInput,
     cat,
+    storage
   } = useContext(shopContext);
 
   useEffect(() => {
@@ -37,6 +38,8 @@ export default function Shop() {
       setProductParams("filter=newset");
     } else if (productStatus.sale) {
       setProductParams("filter=discounted");
+    } else if (storage) {
+      setProductParams("storage=" + storage)
     } else {
       setProductParams("");
     }
